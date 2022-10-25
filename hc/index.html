@@ -1,0 +1,33 @@
+<audio>
+    <source src="hotel-california.mp3">
+</audio>
+<button onclick="playAt(0);">1</button>
+<button onclick="playAt(10.5);">3</button>
+<button onclick="playAt(10.5*2);">5</button>
+<button onclick="playAt(10.5*3);">7</button>
+<button onclick="playAt(10.5*4);">9</button>
+<button onclick="playAt(10.5*5);">11</button>
+<button onclick="playAt(10.5*6);">13</button>
+<button onclick="playAt(10.5*7);">15</button>
+<button onclick="playAt(10.65*8);">17</button>
+<button onclick="playAt(10.5*9);">19</button>
+<button onclick="playAt(10.55*10);">21</button>
+<button onclick="playAt(10.6*11);">23</button>
+<button onclick="playAt(10.6*12);">25</button>
+<script>
+    var playerTimeout = undefined;
+    function playAt(seconds){
+        if (typeof playerTimeout !== "undefined") {
+            clearTimeout(playerTimeout);
+        }
+        var audio = document.getElementsByTagName("audio")[0];
+        audio.currentTime = seconds;
+        audio.play();
+        playerTimeout = setTimeout(function(){
+                audio.pause();
+            },
+            10700);
+    }
+</script>
+
+<img src="notes.jpg" />
